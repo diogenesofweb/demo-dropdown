@@ -1,0 +1,91 @@
+details.dropdown {
+  display: inline;
+  position: relative;
+}
+
+details.dropdown > summary {
+  /* position: relative; */
+  overflow: hidden;
+
+  display: flex;
+  gap: 1rem;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+
+  text-transform: capitalize;
+
+  cursor: pointer;
+
+  background-color: white;
+}
+
+details.dropdown > summary:hover {
+  background-color: lightblue;
+}
+
+details.dropdown[open] > summary::before {
+  z-index: 100;
+
+  position: fixed;
+  inset: 0;
+  content: " ";
+
+  background-color: hsla(0, 0%, 50%, 0.66);
+
+  cursor: default;
+}
+
+details.dropdown > summary span.up {
+  display: none;
+}
+details.dropdown[open] > summary span.up {
+  display: inline;
+}
+
+details.dropdown[open] > summary span.down {
+  display: none;
+}
+
+details.dropdown[open] .menu {
+  z-index: 101;
+  position: absolute;
+  display: block;
+}
+
+details.dropdown.right[open] .menu {
+  right: 0;
+}
+
+details.dropdown .menu-list {
+  max-height: 20rem;
+  overflow-y: auto;
+
+  margin-top: 0.5rem;
+  padding: 0.33rem 0;
+
+  border-radius: 1rem;
+
+  box-shadow: 0 0 0.9rem -0.1rem hsla(0, 0%, 0%, 0.75);
+
+  background-color: white;
+}
+
+details.dropdown .menu-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+
+  width: 100%;
+  padding: 1em 1.2em;
+
+  color: var(--text);
+  background-color: transparent;
+
+  text-decoration: none;
+  line-height: 1;
+}
+
+details.dropdown .menu-list-item:is(:hover, :focus) {
+  color: blue;
+  background-color: hsla(0, 0%, 50%, 0.1);
+}

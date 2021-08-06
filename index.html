@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Dropdown</title>
+
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-size: 20px;
+        min-height: 100vh;
+        background-color: rgb(75, 112, 134);
+      }
+      section {
+        margin-top: 2rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+      }
+    </style>
+  </head>
+
+  <body>
+    <script>
+      function closeDropdown(id) {
+        console.log("closeDropdown");
+        if (id) {
+          // console.log({ id })
+          document.getElementById(id)?.removeAttribute("open");
+        } else {
+          document.querySelectorAll("details.dropdown")?.forEach((el) => {
+            // console.log(el)
+            el.removeAttribute("open");
+          });
+        }
+      }
+    </script>
+    <section>
+      <details class="dropdown">
+        <summary>
+          <span>dropdown left</span>
+
+          <span class="up"> ⬆️ </span>
+          <span class="down"> ⬇️ </span>
+        </summary>
+
+        <div class="menu" onclick="closeDropdown()">
+          <div class="menu-list">
+            <a href="#!" class="menu-list-item">menu-list-item 0</a>
+            <a href="#!" class="menu-list-item">menu-list-item 1</a>
+            <a href="#!" class="menu-list-item">menu-list-item 2</a>
+            <a href="#!" class="menu-list-item">menu-list-item 3</a>
+            <a href="#!" class="menu-list-item">menu-list-item 4</a>
+            <a href="#!" class="menu-list-item">menu-list-item 5</a>
+            <a href="#!" class="menu-list-item">menu-list-item 6</a>
+            <a href="#!" class="menu-list-item">menu-list-item 7</a>
+          </div>
+        </div>
+      </details>
+
+      <details class="dropdown right">
+        <summary>
+          <span>dropdown right</span>
+
+          <span class="up"> ⬆️ </span>
+          <span class="down"> ⬇️ </span>
+        </summary>
+
+        <div class="menu" onclick="closeDropdown()">
+          <div class="menu-list">
+            <a href="#!" class="menu-list-item">item 0</a>
+            <a href="#!" class="menu-list-item">item 1</a>
+            <a href="#!" class="menu-list-item">item 2</a>
+            <a href="#!" class="menu-list-item">item 3</a>
+            <a href="#!" class="menu-list-item">item 4</a>
+          </div>
+        </div>
+      </details>
+    </section>
+  </body>
+</html>
